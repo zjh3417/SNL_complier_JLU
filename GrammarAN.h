@@ -9,43 +9,43 @@
 #include<stack>
 using namespace std;
 
-enum NodeKindEnum {	//Óï·¨Ê÷½ÚµãÀàĞÍ·¨Ã¶¾Ù
-	ProK,				//¸ù±êÖ¾½Úµã
-	PheadK,			//³ÌĞòÍ·±êÖ¾½Úµã
-	TypeK,				//ÀàĞÍÉùÃ÷±êÖ¾½Úµã
-	VarK,				//	±äÁ¿ÉùÃ÷±êÖ¾½Úµã
-	ProcDecK,		//	º¯ÊıÉùÃ÷±êÖ¾½Úµã
-	StmLK,				//Óï¾äĞòÁĞ±êÖ¾½Úµã
-	DecK,				//ÉùÃ÷½Úµã
-	StmtK,				//Óï¾ä½Úµã
-	ExpK					//±í´ïÊ½½Úµã
+enum NodeKindEnum {	//è¯­æ³•æ ‘èŠ‚ç‚¹ç±»å‹æ³•æšä¸¾
+	ProK,				//æ ¹æ ‡å¿—èŠ‚ç‚¹
+	PheadK,			//ç¨‹åºå¤´æ ‡å¿—èŠ‚ç‚¹
+	TypeK,				//ç±»å‹å£°æ˜æ ‡å¿—èŠ‚ç‚¹
+	VarK,				//	å˜é‡å£°æ˜æ ‡å¿—èŠ‚ç‚¹
+	ProcDecK,		//	å‡½æ•°å£°æ˜æ ‡å¿—èŠ‚ç‚¹
+	StmLK,				//è¯­å¥åºåˆ—æ ‡å¿—èŠ‚ç‚¹
+	DecK,				//å£°æ˜èŠ‚ç‚¹
+	StmtK,				//è¯­å¥èŠ‚ç‚¹
+	ExpK					//è¡¨è¾¾å¼èŠ‚ç‚¹
 };
-enum DeckEnum {	//ÉùÃ÷½ÚµãÀàĞÍÃ¶¾Ù
-	ArrayK,				//Êı×éÀàĞÍ
-	CharK,				//×Ö·ûÀàĞÍ
-	IntegerK,			//ÕûÊıÀàĞÍ
-	RecordK,			//¼ÇÂ¼ÀàĞÍ
-	IdK					//ÀàÀàĞÍ±êÖ¾·û×÷ÎªÀàĞÍ
+enum DeckEnum {	//å£°æ˜èŠ‚ç‚¹ç±»å‹æšä¸¾
+	ArrayK,				//æ•°ç»„ç±»å‹
+	CharK,				//å­—ç¬¦ç±»å‹
+	IntegerK,			//æ•´æ•°ç±»å‹
+	RecordK,			//è®°å½•ç±»å‹
+	IdK					//ç±»ç±»å‹æ ‡å¿—ç¬¦ä½œä¸ºç±»å‹
 };
-enum StmtKEnum {	//Óï¾ä½ÚµãÀàĞÍÃ¶¾Ù
-	IfK,					//ÅĞ¶ÏÓï¾äÀàĞÍ
-	WhileK,				//Ñ­»·Óï¾äÀàĞÍ
-	AssignK,			//¸³ÖµÓï¾äÀàĞÍ
-	ReadK,				//¶ÁÓï¾äÀàĞÍ
-	WriteK,				//Ğ´Óï¾äÀàĞÍ
-	CallK,				//º¯Êıµ÷ÓÃÓï¾äÀàĞÍ
-	ReturnK			//·µ»ØÓï¾äÀàĞÍ
+enum StmtKEnum {	//è¯­å¥èŠ‚ç‚¹ç±»å‹æšä¸¾
+	IfK,					//åˆ¤æ–­è¯­å¥ç±»å‹
+	WhileK,				//å¾ªç¯è¯­å¥ç±»å‹
+	AssignK,			//èµ‹å€¼è¯­å¥ç±»å‹
+	ReadK,				//è¯»è¯­å¥ç±»å‹
+	WriteK,				//å†™è¯­å¥ç±»å‹
+	CallK,				//å‡½æ•°è°ƒç”¨è¯­å¥ç±»å‹
+	ReturnK			//è¿”å›è¯­å¥ç±»å‹
 };
-enum ExpKEnum {	//	±í´ïÊ½½ÚµãÀàĞÍÃ¶¾Ù
-	OpK,					//	²Ù×÷·ûÀàĞÍ
-	ConstK,			//³£ÕûÊıÀàĞÍ
-	IdEK					//±êÊ¶·ûÀàĞÍ
+enum ExpKEnum {	//	è¡¨è¾¾å¼èŠ‚ç‚¹ç±»å‹æšä¸¾
+	OpK,					//	æ“ä½œç¬¦ç±»å‹
+	ConstK,			//å¸¸æ•´æ•°ç±»å‹
+	IdEK					//æ ‡è¯†ç¬¦ç±»å‹
 };
-enum ParamtEnum {	//²ÎÊıÊÇÖµ²Î»¹ÊÇ±ä²Î
+enum ParamtEnum {	//å‚æ•°æ˜¯å€¼å‚è¿˜æ˜¯å˜å‚
 	Valparamtype,
 	Varparamtype
 };
-enum VarKindEnum {	//±äÁ¿µÄÀà±ğ,·Ö±ğ±íÊ¾±äÁ¿ÊÇ±êÖ¾·û±äÁ¿£¬Êı×é³ÉÔ±±äÁ¿»¹ÊÇÓò³ÉÔ±±äÁ¿
+enum VarKindEnum {	//å˜é‡çš„ç±»åˆ«,åˆ†åˆ«è¡¨ç¤ºå˜é‡æ˜¯æ ‡å¿—ç¬¦å˜é‡ï¼Œæ•°ç»„æˆå‘˜å˜é‡è¿˜æ˜¯åŸŸæˆå‘˜å˜é‡
 	IdV,
 	ArrayMembV,
 	FieldMembV
@@ -59,72 +59,72 @@ enum LexType {
 enum ExpType {
 	Void, Integer, Boolean
 };
-/*******************¹²ÓÃÌåÉùÃ÷************************/
+/*******************å…±ç”¨ä½“å£°æ˜************************/
 union Kind {
-	DeckEnum dec;		//¼ÇÂ¼Óï·¨Ê÷½ÚµãµÄÉùÃ÷ÀàĞÍ,µ±nodekind=DecKÊ±ÓĞĞ§
-	StmtKEnum stmt;		//¼ÇÂ¼Óï·¨Ê÷½ÚµãµÄÓï¾äÀàĞÍ,µ±nodekind=StmtKÊ±ÓĞĞ§
-	ExpKEnum exp;		//¼ÇÂ¼Óï·¨Ê÷½ÚµãµÄ±í´ïÊ½ÀàĞÍ,µ±nodekind=ExpKÊ±ÓĞĞ§
+	DeckEnum dec;		//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹çš„å£°æ˜ç±»å‹,å½“nodekind=DecKæ—¶æœ‰æ•ˆ
+	StmtKEnum stmt;		//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹çš„è¯­å¥ç±»å‹,å½“nodekind=StmtKæ—¶æœ‰æ•ˆ
+	ExpKEnum exp;		//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹çš„è¡¨è¾¾å¼ç±»å‹,å½“nodekind=ExpKæ—¶æœ‰æ•ˆ
 };
-/*******************½á¹¹ÌåÉùÃ÷************************/
-struct ArrayAttr {	//¼ÇÂ¼Êı×éÀàĞÍµÄÊôĞÔ¡£
+/*******************ç»“æ„ä½“å£°æ˜************************/
+struct ArrayAttr {	//è®°å½•æ•°ç»„ç±»å‹çš„å±æ€§ã€‚
 	int low;
 	int up;
 	DeckEnum childType;
 };
-struct ProcAttr {	//¼ÇÂ¼¹ı³ÌµÄÊôĞÔ¡£
+struct ProcAttr {	//è®°å½•è¿‡ç¨‹çš„å±æ€§ã€‚
 	ParamtEnum paramt;
 };
-struct ExpAttr {	//¼ÇÂ¼±í´ïÊ½µÄÊôĞÔ¡£
-	LexType op;	//¼ÇÂ¼Óï·¨Ê÷½ÚµãµÄÔËËã·ûµ¥´Ê£¬Îªµ¥´ÊÀàĞÍ
-	int val;		//¼ÇÂ¼Óï·¨Ê÷½ÚµãµÄÊıÖµ,
-	VarKindEnum varkind;	//¼ÇÂ¼±äÁ¿µÄÀà±ğ
-	ExpType type;	//¼ÇÂ¼Óï·¨Ê÷½ÚµãµÄ¼ì²éÀàĞÍ£¬È¡ÖµVoid, Integer,Boolean,ÎªÀàĞÍ¼ì²éExpTypeÀàĞÍ
+struct ExpAttr {	//è®°å½•è¡¨è¾¾å¼çš„å±æ€§ã€‚
+	LexType op;	//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹çš„è¿ç®—ç¬¦å•è¯ï¼Œä¸ºå•è¯ç±»å‹
+	int val;		//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹çš„æ•°å€¼,
+	VarKindEnum varkind;	//è®°å½•å˜é‡çš„ç±»åˆ«
+	ExpType type;	//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹çš„æ£€æŸ¥ç±»å‹ï¼Œå–å€¼Void, Integer,Boolean,ä¸ºç±»å‹æ£€æŸ¥ExpTypeç±»å‹
 };
-struct Attr {		//¼ÇÂ¼Óï·¨Ê÷½ÚµãÆäËûÊôĞÔ
+struct Attr {		//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹å…¶ä»–å±æ€§
 	ArrayAttr arrayAttr;
 	ProcAttr procAttr;
 	ExpAttr expAttr;
 };
 struct TreeNode
 {
-	TreeNode* child[3];	//Ö¸Ïò×ÓÓï·¨Ê÷½ÚµãÖ¸Õë,0ÊÇ³ÌĞòÍ·,1ÊÇÉùÃ÷£¬2ÊÇ³ÌĞòÌå
-	TreeNode* sibling;	//Ö¸ÏòĞÖµÜÓï·¨Ê÷½ÚµãÖ¸Õë
-	int lineno;					//¼ÇÂ¼Ô´³ÌĞòĞĞºÅ
-	NodeKindEnum nodekind;//	¼ÇÂ¼Óï·¨Ê÷½ÚµãÀàĞÍ
-	Kind kind;					//¼ÇÂ¼Óï·¨Ê÷½ÚµãµÄ¾ßÌåÀàĞÍ
-	int idnum = 0;				//¼ÇÂ¼Ò»¸ö½ÚµãÖĞ±êÖ¾·û¸öÊı
-	vector<string> name;	//ÈİÆ÷³ÉÔ±ÊÇ½ÚµãÖĞµÄ±êÖ¾·ûµÄÃû×Ö
-	vector<int*> table;	//	ÈİÆ÷³ÉÔ±ÊÇ½ÚµãÖĞµÄ¸÷¸ö±êÖ¾·ûÔÚ·ûºÅ±íÖĞµÄÈë¿Ú
-	string type_name;	//¼ÇÂ¼ÀàĞÍÃû£¬µ±½ÚµãÎªÉùÃ÷ÀàĞÍÇÒÀàĞÍÊÇÓÉÀàĞÍ±êÖ¾·û±íÊ¾ÊÇÓĞĞ§
-	Attr attr;				//¼ÇÂ¼Óï·¨Ê÷½ÚµãÆäËûÊôĞÔ
+	TreeNode* child[3];	//æŒ‡å‘å­è¯­æ³•æ ‘èŠ‚ç‚¹æŒ‡é’ˆ,0æ˜¯ç¨‹åºå¤´,1æ˜¯å£°æ˜ï¼Œ2æ˜¯ç¨‹åºä½“
+	TreeNode* sibling;	//æŒ‡å‘å…„å¼Ÿè¯­æ³•æ ‘èŠ‚ç‚¹æŒ‡é’ˆ
+	int lineno;					//è®°å½•æºç¨‹åºè¡Œå·
+	NodeKindEnum nodekind;//	è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹ç±»å‹
+	Kind kind;					//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹çš„å…·ä½“ç±»å‹
+	int idnum = 0;				//è®°å½•ä¸€ä¸ªèŠ‚ç‚¹ä¸­æ ‡å¿—ç¬¦ä¸ªæ•°
+	vector<string> name;	//å®¹å™¨æˆå‘˜æ˜¯èŠ‚ç‚¹ä¸­çš„æ ‡å¿—ç¬¦çš„åå­—
+	vector<int*> table;	//	å®¹å™¨æˆå‘˜æ˜¯èŠ‚ç‚¹ä¸­çš„å„ä¸ªæ ‡å¿—ç¬¦åœ¨ç¬¦å·è¡¨ä¸­çš„å…¥å£
+	string type_name;	//è®°å½•ç±»å‹åï¼Œå½“èŠ‚ç‚¹ä¸ºå£°æ˜ç±»å‹ä¸”ç±»å‹æ˜¯ç”±ç±»å‹æ ‡å¿—ç¬¦è¡¨ç¤ºæ˜¯æœ‰æ•ˆ
+	Attr attr;				//è®°å½•è¯­æ³•æ ‘èŠ‚ç‚¹å…¶ä»–å±æ€§
 };
 struct Token
 {
-	int linsShow;		//¼ÇÂ¼µ¥´ÊĞĞºÅ
-	LexType lex;		//¼ÇÂ¼¸Ãµ¥´ÊµÄ´Ê·¨ĞÅÏ¢£¬ÆäÖĞLexTypeÎªµ¥´ÊµÄÀàĞÍÃ¶¾Ù
-	string sem;		//¼ÇÂ¼¸Ãµ¥´ÊµÄÓïÒåĞÅÏ¢
+	int linsShow;		//è®°å½•å•è¯è¡Œå·
+	LexType lex;		//è®°å½•è¯¥å•è¯çš„è¯æ³•ä¿¡æ¯ï¼Œå…¶ä¸­LexTypeä¸ºå•è¯çš„ç±»å‹æšä¸¾
+	string sem;		//è®°å½•è¯¥å•è¯çš„è¯­ä¹‰ä¿¡æ¯
 };
 
-//**********Óï·¨·ÖÎöËùÒªµÄ±äÁ¿ÉùÃ÷*****************
-stack<string> signStack;	//·ûºÅÕ»
-stack<TreeNode*> opSignStack;	//²Ù×÷·ûÕ»
-stack<TreeNode*> opNumStack;	//²Ù×÷ÊıÕ»
-stack<TreeNode**>	syntaxTreeStack;		//Óï·¨Ê÷Õ»
-vector<vector<string>> productSet;	//´æ´¢ËùÓĞµÄ²úÉúÊ½
-vector<vector<string>> predictSet;	//´æ´¢ËùÓĞ²úÉúÊ½µÄpredict¼¯
-vector<vector<int>> LL1Table;	//LL1¾ØÕó
-set<string> VT;	//´æ´¢ËùÓĞÖÕ¼«·û
-set<string> VN;	//´æ´¢ËùÓĞ·ÇÖÕ¼«·û
-string S;	//¿ªÊ¼·û
-TreeNode* currentP;	//´æ´¢µ±Ç°½Úµã
-TreeNode* saveP;		//±£´æµ±Ç°Ö¸Ïò¼ÇÂ¼ÀàĞÍÉùÃ÷½ÚµãµÄÖ¸Õë
-TreeNode* saveFuncP;	//±£´æÖ¸ÏòÄ³Ò»½ÚµãµÄÖ¸Õë
+//**********è¯­æ³•åˆ†ææ‰€è¦çš„å˜é‡å£°æ˜*****************
+stack<string> signStack;	//ç¬¦å·æ ˆ
+stack<TreeNode*> opSignStack;	//æ“ä½œç¬¦æ ˆ
+stack<TreeNode*> opNumStack;	//æ“ä½œæ•°æ ˆ
+stack<TreeNode**>	syntaxTreeStack;		//è¯­æ³•æ ‘æ ˆ
+vector<vector<string>> productSet;	//å­˜å‚¨æ‰€æœ‰çš„äº§ç”Ÿå¼
+vector<vector<string>> predictSet;	//å­˜å‚¨æ‰€æœ‰äº§ç”Ÿå¼çš„predicté›†
+vector<vector<int>> LL1Table;	//LL1çŸ©é˜µ
+set<string> VT;	//å­˜å‚¨æ‰€æœ‰ç»ˆæç¬¦
+set<string> VN;	//å­˜å‚¨æ‰€æœ‰éç»ˆæç¬¦
+string S;	//å¼€å§‹ç¬¦
+TreeNode* currentP;	//å­˜å‚¨å½“å‰èŠ‚ç‚¹
+TreeNode* saveP;		//ä¿å­˜å½“å‰æŒ‡å‘è®°å½•ç±»å‹å£°æ˜èŠ‚ç‚¹çš„æŒ‡é’ˆ
+TreeNode* saveFuncP;	//ä¿å­˜æŒ‡å‘æŸä¸€èŠ‚ç‚¹çš„æŒ‡é’ˆ
 DeckEnum* temp;
 bool getExpResult = true;
-bool getExpResult2;	//ÓÃÓÚÊı×é
-int expflag = 0;	//ÓÃÓÚ¼ÆËãÀ¨ºÅ
+bool getExpResult2;	//ç”¨äºæ•°ç»„
+int expflag = 0;	//ç”¨äºè®¡ç®—æ‹¬å·
 extern Token token;
-string arrayLexType_hyf[] = { "ID","IF","BEGIN","INTC","END","PLUS","MINUS","TIMES","OVER","EQ","LT","LMIDPAREN","RMIDPAREN" ,"DOT"
+string arrayLexType[] = { "ID","IF","BEGIN","INTC","END","PLUS","MINUS","TIMES","OVER","EQ","LT","LMIDPAREN","RMIDPAREN" ,"DOT"
 	,"TYPE","VAR", "PROCEDURE","PROGRAM","SEMI","INTEGER","CHAR","ARRAY","RECORD","UNDERANGE"
 	,"OF","COMMA","LPAREN","RPAREN","ENDWH","WHILE","RETURN","READ","WRITE","ASSIGN","THEN","FI"
 	,"ELSE","DO"
