@@ -1,0 +1,112 @@
+program bubble
+type t=integer;z=array [1..20] of integer;
+var integer i,j,num,temp;
+array [1..20] of integer nums;
+array [1..20] of char prompt;
+array [1..7] of char prompt1;
+array [1..22] of char prompt2;
+
+
+procedure q(integer num;array [1..20] of integer a);
+var integer i,j,k;
+      integer t;
+
+begin
+
+
+    i := 1;
+    while i < num do
+        j:=num-i+1;
+        k:=1;
+        while k<j do
+            if a[k+1] < a[k]
+            then
+                t:=a[k];
+                a[k]:=a[k+1];
+                a[k+1]:=t
+            else 
+	        temp:=0
+            fi;
+            k:=k+1
+        endwh;
+        i:=i+1
+    endwh;
+    return
+end
+
+begin
+	prompt[1] := 'P';
+	prompt[2] := 'l' ;
+	prompt[3] := 'e' ;
+	prompt[4] := 'a' ;
+	prompt[5] := 's' ;
+	prompt[6] := 'e' ;
+	prompt[7] := ' ' ;
+	prompt[8] := 'i' ;
+	prompt[9] := 'n' ;
+	prompt[10] := 'p';
+	prompt[11] := 'u';
+	prompt[12] := 't';
+	prompt[13] := ' ';
+	prompt[14] := 'c';
+	prompt[15] := 'o';
+	prompt[16] := 'u';
+	prompt[17] := 'n';
+	prompt[18] := 't';
+	prompt[19] := ' ';
+	prompt[20] := ':';
+
+	write(prompt);
+	
+    read(num);
+    
+	prompt2[1] := 'P';
+	prompt2[2] := 'l';
+	prompt2[3] := 'e';
+	prompt2[4] := 'a';
+	prompt2[5] := 's';
+	prompt2[6] := 'e';
+	prompt2[7] := ' ';
+	prompt2[8] := 'i';
+	prompt2[9] := 'n';
+	prompt2[10] := 'p';
+	prompt2[11] := 'u';
+	prompt2[12] := 't';
+	prompt2[13] := ' ';
+	prompt2[14] := 'n';
+	prompt2[15] := 'u';
+	prompt2[16] := 'm';
+	prompt2[17] := 'b';
+	prompt2[18] := 'e';
+	prompt2[19] := 'r';
+	prompt2[20] := 's';
+	prompt2[21] := ' ';
+	prompt2[22] := ':';
+	write(prompt2);
+	
+	i:=1;
+    while i<(num+1) do
+        read(j);
+        nums[i]:=j;
+        i:=i+1
+    endwh;
+	
+    q(num,nums);
+    
+	prompt1[1] := 'R';
+	prompt1[2] := 'e';
+	prompt1[3] := 's';
+	prompt1[4] := 'u';
+	prompt1[5] := 'l';
+	prompt1[6] := 't';
+	prompt1[7] := ':';
+	
+	write(prompt1);
+	
+	i:=1;
+    while i<(num+1) do
+        write(nums[i]);
+        i:=i+1
+    endwh
+	
+end.
