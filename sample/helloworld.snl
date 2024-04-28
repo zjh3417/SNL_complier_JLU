@@ -1,0 +1,22 @@
+program HelloWorld
+
+var
+array [1..12] of char prompt;
+
+begin
+	prompt[1] := 'H';
+	prompt[2] := 'e' ;
+	prompt[3] := 'l' ;
+	prompt[4] := 'l' ;
+	prompt[5] := 'o' ;
+	prompt[6] := ' ' ;
+	prompt[7] := 'W' ;
+	prompt[8] := 'o' ;
+	prompt[9] := 'r' ;
+	prompt[10] := 'l';
+	prompt[11] := 'd';
+	prompt[12] := '!';
+
+	write(prompt);
+	
+end.

@@ -1,0 +1,357 @@
+ProK
+    program_head_node SnlSort
+    VarK
+        declare_node IntegerK choice i
+        declare_node ArrayK IntegerK 1 20 nums
+        declare_node ArrayK CharK 1 5 error
+ProcDeck menu
+    VarK
+        declare_node ArrayK CharK 1 6 show
+        declare_node ArrayK CharK 1 6 edit
+        declare_node ArrayK CharK 1 6 sort
+        declare_node ArrayK CharK 1 6 exit
+        declare_node CharK prompt
+        StmLK
+            StmtK    AssignK
+                ExpK    ArrayMembV    show
+                ExpK    Const    1
+                ExpK    Charc    1
+            StmtK    AssignK
+                ExpK    ArrayMembV    show
+                ExpK    Const    2
+                ExpK    Charc    .
+            StmtK    AssignK
+                ExpK    ArrayMembV    show
+                ExpK    Const    3
+                ExpK    Charc    S
+            StmtK    AssignK
+                ExpK    ArrayMembV    show
+                ExpK    Const    4
+                ExpK    Charc    h
+            StmtK    AssignK
+                ExpK    ArrayMembV    show
+                ExpK    Const    5
+                ExpK    Charc    o
+            StmtK    AssignK
+                ExpK    ArrayMembV    show
+                ExpK    Const    6
+                ExpK    Charc    w
+            StmtK    AssignK
+                ExpK    ArrayMembV    edit
+                ExpK    Const    1
+                ExpK    Charc    2
+            StmtK    AssignK
+                ExpK    ArrayMembV    edit
+                ExpK    Const    2
+                ExpK    Charc    .
+            StmtK    AssignK
+                ExpK    ArrayMembV    edit
+                ExpK    Const    3
+                ExpK    Charc    E
+            StmtK    AssignK
+                ExpK    ArrayMembV    edit
+                ExpK    Const    4
+                ExpK    Charc    d
+            StmtK    AssignK
+                ExpK    ArrayMembV    edit
+                ExpK    Const    5
+                ExpK    Charc    i
+            StmtK    AssignK
+                ExpK    ArrayMembV    edit
+                ExpK    Const    6
+                ExpK    Charc    t
+            StmtK    AssignK
+                ExpK    ArrayMembV    sort
+                ExpK    Const    1
+                ExpK    Charc    3
+            StmtK    AssignK
+                ExpK    ArrayMembV    sort
+                ExpK    Const    2
+                ExpK    Charc    .
+            StmtK    AssignK
+                ExpK    ArrayMembV    sort
+                ExpK    Const    3
+                ExpK    Charc    S
+            StmtK    AssignK
+                ExpK    ArrayMembV    sort
+                ExpK    Const    4
+                ExpK    Charc    o
+            StmtK    AssignK
+                ExpK    ArrayMembV    sort
+                ExpK    Const    5
+                ExpK    Charc    r
+            StmtK    AssignK
+                ExpK    ArrayMembV    sort
+                ExpK    Const    6
+                ExpK    Charc    t
+            StmtK    AssignK
+                ExpK    ArrayMembV    exit
+                ExpK    Const    1
+                ExpK    Charc    4
+            StmtK    AssignK
+                ExpK    ArrayMembV    exit
+                ExpK    Const    2
+                ExpK    Charc    .
+            StmtK    AssignK
+                ExpK    ArrayMembV    exit
+                ExpK    Const    3
+                ExpK    Charc    E
+            StmtK    AssignK
+                ExpK    ArrayMembV    exit
+                ExpK    Const    4
+                ExpK    Charc    x
+            StmtK    AssignK
+                ExpK    ArrayMembV    exit
+                ExpK    Const    5
+                ExpK    Charc    i
+            StmtK    AssignK
+                ExpK    ArrayMembV    exit
+                ExpK    Const    6
+                ExpK    Charc    t
+            StmtK    AssignK
+                ExpK    IdV    prompt
+                ExpK    Charc    >
+            StmtK    WriteK
+                ExpK    IdV    show
+            StmtK    WriteK
+                ExpK    IdV    edit
+            StmtK    WriteK
+                ExpK    IdV    sort
+            StmtK    WriteK
+                ExpK    IdV    exit
+            StmtK    WriteK
+                ExpK    IdV    prompt
+ProcDeck sort
+                declare_node Valparamtype: ArrayK IntegerK 1 20 numbers
+            VarK
+                declare_node IntegerK i j k
+                declare_node IntegerK t temp
+        StmLK
+            StmtK    AssignK
+                ExpK    IdV    i
+                ExpK    Const    1
+            StmtK    WhileK
+                ExpK    Op LT
+                    ExpK    IdV    i
+                    ExpK    Const    20
+            StmtK    AssignK
+                ExpK    IdV    j
+                ExpK    Op PLUS
+                    ExpK    Op MINUS
+                        ExpK    Const    20
+                        ExpK    IdV    i
+                        ExpK    Const    1
+            StmtK    AssignK
+                ExpK    IdV    k
+                ExpK    Const    1
+            StmtK    WhileK
+                ExpK    Op LT
+                    ExpK    IdV    k
+                    ExpK    IdV    j
+            StmtK    IfK
+                ExpK    Op LT
+                    ExpK    ArrayMembV    numbers
+                    ExpK    Op PLUS
+                        ExpK    IdV    k
+                        ExpK    Const    1
+                    ExpK    ArrayMembV    numbers
+                    ExpK    IdV    k
+            StmtK    AssignK
+                ExpK    IdV    t
+                ExpK    ArrayMembV    numbers
+                ExpK    IdV    k
+            StmtK    AssignK
+                ExpK    ArrayMembV    numbers
+                ExpK    IdV    k
+                ExpK    ArrayMembV    numbers
+                ExpK    Op PLUS
+                    ExpK    IdV    k
+                    ExpK    Const    1
+            StmtK    AssignK
+                ExpK    ArrayMembV    numbers
+                ExpK    Op PLUS
+                    ExpK    IdV    k
+                    ExpK    Const    1
+                ExpK    IdV    t
+            StmtK    AssignK
+                ExpK    IdV    temp
+                ExpK    Const    0
+            StmtK    AssignK
+                ExpK    IdV    k
+                ExpK    Op PLUS
+                    ExpK    IdV    k
+                    ExpK    Const    1
+            StmtK    AssignK
+                ExpK    IdV    i
+                ExpK    Op PLUS
+                    ExpK    IdV    i
+                    ExpK    Const    1
+            StmtK    WriteK
+                ExpK    IdV    numbers
+            StmtK    ReturnK
+ProcDeck edit
+                declare_node Valparamtype: ArrayK IntegerK 1 20 numbers
+            VarK
+                declare_node ArrayK CharK 1 6 prompt
+                declare_node ArrayK CharK 1 4 prompt1
+                declare_node IntegerK index
+                declare_node IntegerK temp
+        StmLK
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    1
+                ExpK    Charc    I
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    2
+                ExpK    Charc    n
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    3
+                ExpK    Charc    d
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    4
+                ExpK    Charc    e
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    5
+                ExpK    Charc    x
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    6
+                ExpK    Charc    :
+            StmtK    WriteK
+                ExpK    IdV    prompt
+            StmtK    ReadK    index
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt1
+                ExpK    Const    1
+                ExpK    Charc    n
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt1
+                ExpK    Const    2
+                ExpK    Charc    u
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt1
+                ExpK    Const    3
+                ExpK    Charc    m
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt1
+                ExpK    Const    4
+                ExpK    Charc    :
+            StmtK    WriteK
+                ExpK    IdV    prompt1
+            StmtK    ReadK    temp
+            StmtK    AssignK
+                ExpK    ArrayMembV    numbers
+                ExpK    IdV    index
+                ExpK    IdV    temp
+ProcDeck show
+                declare_node Valparamtype: ArrayK IntegerK 1 20 numbers
+            VarK
+                declare_node ArrayK CharK 1 6 prompt
+                declare_node IntegerK index
+        StmLK
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    1
+                ExpK    Charc    I
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    2
+                ExpK    Charc    n
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    3
+                ExpK    Charc    d
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    4
+                ExpK    Charc    e
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    5
+                ExpK    Charc    x
+            StmtK    AssignK
+                ExpK    ArrayMembV    prompt
+                ExpK    Const    6
+                ExpK    Charc    :
+            StmtK    WriteK
+                ExpK    IdV    prompt
+            StmtK    ReadK    index
+            StmtK    WriteK
+                ExpK    ArrayMembV    numbers
+                ExpK    IdV    index
+    StmLK
+        StmtK    AssignK
+            ExpK    ArrayMembV    error
+            ExpK    Const    1
+            ExpK    Charc    e
+        StmtK    AssignK
+            ExpK    ArrayMembV    error
+            ExpK    Const    2
+            ExpK    Charc    r
+        StmtK    AssignK
+            ExpK    ArrayMembV    error
+            ExpK    Const    3
+            ExpK    Charc    r
+        StmtK    AssignK
+            ExpK    ArrayMembV    error
+            ExpK    Const    4
+            ExpK    Charc    o
+        StmtK    AssignK
+            ExpK    ArrayMembV    error
+            ExpK    Const    5
+            ExpK    Charc    r
+        StmtK    AssignK
+            ExpK    IdV    i
+            ExpK    Const    1
+        StmtK    WhileK
+            ExpK    Op LT
+                ExpK    IdV    i
+                ExpK    Const    21
+        StmtK    AssignK
+            ExpK    ArrayMembV    nums
+            ExpK    IdV    i
+            ExpK    Const    0
+        StmtK    AssignK
+            ExpK    IdV    i
+            ExpK    Op PLUS
+                ExpK    IdV    i
+                ExpK    Const    1
+        StmtK    WhileK
+            ExpK    Op EQ
+                ExpK    Const    1
+                ExpK    Const    1
+        StmtK    CallK
+            ExpK    IdV    menu
+        StmtK    ReadK    choice
+        StmtK    IfK
+            ExpK    Op EQ
+                ExpK    IdV    choice
+                ExpK    Const    1
+        StmtK    CallK
+            ExpK    IdV    show
+            ExpK    IdV    nums
+        StmtK    IfK
+            ExpK    Op EQ
+                ExpK    IdV    choice
+                ExpK    Const    2
+        StmtK    CallK
+            ExpK    IdV    edit
+            ExpK    IdV    nums
+        StmtK    IfK
+            ExpK    Op EQ
+                ExpK    IdV    choice
+                ExpK    Const    3
+        StmtK    CallK
+            ExpK    IdV    sort
+            ExpK    IdV    nums
+        StmtK    IfK
+            ExpK    Op EQ
+                ExpK    IdV    choice
+                ExpK    Const    4
+        StmtK    ReturnK
+        StmtK    WriteK
+            ExpK    IdV    error

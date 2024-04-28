@@ -1,0 +1,8 @@
+choice varKind intTy 1 4 0
+i varKind intTy 1 4 4
+nums varKind arrayTy 1 80 8
+error varKind arrayTy 1 5 88
+menu procKind intTy 1
+sort procKind intTy 1
+edit procKind intTy 1
+show procKind intTy 1
